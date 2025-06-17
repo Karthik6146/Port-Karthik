@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { getPostBySlug, getAllPosts } from '@/lib/posts';
 import MDXContent from '@/components/MDXContent';
+import { serialize } from 'next-mdx-remote/serialize';
 
 // Generate static params for all posts
 export async function generateStaticParams() {
@@ -12,7 +13,7 @@ export async function generateStaticParams() {
 
 // Generate metadata for the page
 export async function generateMetadata({ params }) {
-  const { slug } = await params;
+  const { slug } = params;
   const post = await getPostBySlug(slug);
 
   if (!post) {
@@ -28,13 +29,15 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function BlogPost({ params }) {
-  const { slug } = await params;
-
+  const { slug } = params;
   const post = await getPostBySlug(slug);
 
   if (!post) {
     notFound();
   }
+
+  // Serialize the MDX content
+  const serializedContent = await serialize(post.content);
 
   return (
     <article className="mx-auto max-w-6xl px-4 py-12">
@@ -62,7 +65,7 @@ export default async function BlogPost({ params }) {
         </div> */}
       </header>
 
-      <MDXContent content={post.content} />
+      <MDXContent content={serializedContent} />
     </article>
   );
 }
