@@ -1,74 +1,35 @@
-import { Figtree } from 'next/font/google';
-import './globals.css';
-import Header from '../components/layout/Header';
-import Footer from '../components/layout/Footer';
-
-const figtree = Figtree({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-figtree',
-});
+﻿import './globals.css';
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
 
 export const metadata = {
-  title: 'Karthik Shakyawar | Frontend Developer',
-  description:
-    'Frontend Developer specializing in responsive, accessible, and high-performance websites using React.js, Next.js, and TailwindCSS.',
-  keywords: [
-    'Frontend Developer',
-    'Frontend Engineer',
-    'UI/UX Designer',
-    'React.js',
-    'Next.js',
-    'Web Development',
-    'TailwindCSS',
-    'Freelance Web Developer',
-    'Accessibility',
-    'Responsive Design',
-  ],
-  authors: [{ name: 'Karthik Shakyawar', url: 'www.arevei.com' }],
+  metadataBase: new URL(process.env.SITE_URL || (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : 'http://localhost:3000')),
+  title: { default: 'Karthik Shakyawar | Frontend Developer', template: '%s | Karthik Shakyawar' },
+  description: 'Frontend developer building thoughtful websites with React, Next.js, and Tailwind CSS. Explore my projects, skills, and experiments.',
+  authors: [{ name: 'Karthik Shakyawar' }],
   robots: 'index, follow',
   openGraph: {
     type: 'website',
-    url: 'www.arevei.com',
     title: 'Karthik Shakyawar | Frontend Developer',
-    description:
-      "I build visually appealing, high-performance, and accessible websites. Let's create something amazing together!",
-    images: [
-      {
-        url: '/vikram-mahto-frontend-developer.png',
-        width: 1200,
-        height: 630,
-        alt: 'Karthik Shakyawar - Frontend Developer',
-      },
-    ],
+    description: 'Thoughtful interfaces. Practical code. Explore my selected work and get in touch.',
+    images: [{ url: '/Site%20portfolio%20pic.png', width: 605, height: 721, alt: 'Karthik Shakyawar' }],
   },
   twitter: {
-    card: 'summary_large_image',
-    site: '@here_karthik',
-    title: 'Karthik Shakyawar | Frontend DevelopeR',
-    description:
-      "I craft modern, user-friendly web experiences using React, Next.js, and TailwindCSS. Let's collaborate!",
-    images: ['/vikram-mahto-frontend-developer.png'],
+    card: 'summary',
+    title: 'Karthik Shakyawar | Frontend Developer',
+    description: 'Thoughtful websites, frontend projects, and experiments by Karthik Shakyawar.',
+    images: ['/Site%20portfolio%20pic.png'],
   },
-  alternates: {
-    canonical: 'https://www.arevei.com',
-  },
-  icons: {
-    icon: '/favicon.ico',
-  },
+  icons: { icon: '/favicon.ico' },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={figtree.variable}>
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </head>
-      <body className="bg-neutral-950 text-white antialiased">
-        <div className="absolute pointer-events-none h-full w-full bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_60%,transparent_100%)] bg-[size:24px_24px]"></div>
+    <html lang="en">
+      <body>
+        <a className="skip-link" href="#main-content">Skip to content</a>
         <Header />
-        <main>{children}</main>
+        <main id="main-content" tabIndex={-1}>{children}</main>
         <Footer />
       </body>
     </html>

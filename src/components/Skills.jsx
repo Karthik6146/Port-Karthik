@@ -1,57 +1,22 @@
-import React from 'react';
+﻿const skills = [
+  { category: 'Frontend', items: ['React', 'Next.js', 'JavaScript', 'HTML & CSS', 'Tailwind CSS', 'Bootstrap'] },
+  { category: 'Design', items: ['Figma', 'Penpot', 'Responsive design', 'Adobe Photoshop'] },
+  { category: 'Tools & workflow', items: ['Git', 'GitHub', 'WordPress', 'Bitbucket'] },
+];
 
-const Skills = () => {
-  const skills = [
-    {
-      category: 'Languages',
-      items: ['HTML', 'CSS', 'JavaScript'],
-    },
-    {
-      category: 'Frameworks',
-      items: ['Bootstrap', 'Tailwind CSS'],
-    },
-    {
-      category: 'Library',
-      items: ['jQuery', 'ReactJS', 'Material UI'],
-    },
-    {
-      category: 'Design',
-      items: ['Figma', 'Penpot', 'Adobe XD', 'Canva', 'Adobe Photoshop'],
-    },
-    {
-      category: 'Others',
-      items: ['WordPress', 'Git', 'Github', 'Bitbucket'],
-    },
-  ];
+export default function Skills() {
   return (
-    <div className="mx-auto flex w-full max-w-6xl flex-col items-start space-y-5 px-4 md:space-y-7">
-      <h1 className="border-b border-lime-400 bg-lime-400/10 px-4 py-1 text-xl">
-        Tech Stack
-      </h1>
-      <div className="gap-4 md:grid md:grid-cols-3">
-        {skills.map((skill, index) => (
-          <div
-            key={index}
-            className="border-b-2 border-dashed border-zinc-300 py-3 md:border-0 lg:py-0"
-          >
-            <h2 className="text-xl">{skill.category}</h2>
-            <div className="flex">
-              <ul>
-                {skill.items.map((item, index) => (
-                  <li
-                    key={index}
-                    className="relative inline-block px-3 before:absolute before:top-1/2 before:left-0 before:h-1 before:w-1 before:-translate-y-1/2 before:rounded-full before:bg-gray-300"
-                  >
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        ))}
+    <section id="about" className="about-section container" aria-labelledby="about-title">
+      <div className="about-copy">
+        <p className="eyebrow">02 / A LITTLE ABOUT ME</p>
+        <h2 id="about-title">Curious by nature.<br />Developer by practice<span className="accent">.</span></h2>
+        <p>I enjoy the space where design meets code. From brand websites to learning tools, I like making things that are useful, readable, and comfortable to use.</p>
+        <p>My foundation is frontend development. Along the way, I’m exploring AI tools and ethical hacking, and learning by building.</p>
+        <a className="text-link" href="https://www.linkedin.com/in/karthik-shakyawar-8a0b35243/" target="_blank" rel="noopener noreferrer">Find me on LinkedIn ↗</a>
       </div>
-    </div>
+      <div className="skill-groups">{skills.map((skill) => (
+        <div className="skill-group" key={skill.category}><h3>{skill.category}</h3><ul className="tags">{skill.items.map((item) => <li key={item}>{item}</li>)}</ul></div>
+      ))}</div>
+    </section>
   );
-};
-
-export default Skills;
+}

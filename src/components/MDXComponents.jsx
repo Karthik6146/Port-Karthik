@@ -3,7 +3,7 @@ export const MDXComponents = {
   h2: (props) => <h2 className="mb-4 text-3xl font-bold" {...props} />,
   h3: (props) => <h3 className="mb-3 text-2xl font-bold" {...props} />,
   p: (props) => <p className="mb-4" {...props} />,
-  a: (props) => <a className="hover:text-lime-400 underline" {...props} />,
+  a: (props) => <a className="hover:text-emerald-800 underline" {...props} />,
   ul: (props) => <ul className="mb-4 list-disc pl-6" {...props} />,
   ol: (props) => <ol className="mb-4 list-decimal pl-6" {...props} />,
   li: (props) => <li className="mb-2" {...props} />,

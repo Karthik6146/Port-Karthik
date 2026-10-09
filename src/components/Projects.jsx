@@ -1,82 +1,41 @@
-import Image from 'next/image';
-import React from 'react';
+﻿import Image from 'next/image';
+import projects from '@/lib/projects.json';
 
-const Projects = () => {
-  const works = [
-    {
-      title: 'Arevei: Brand Website',
-      description:'Intern Website for Arevei. [React, Tailwind CSS]',
-      // code: '',
-      live: 'https://www.arevei.com/',
-      stack: 'React, Tailwind CSS',
-      thumbnail: 'Arevei.png',
-    },
-    {
-      title: 'Japanese Learning Website',
-      description: 'Practice Japanese vocabulary and phrases with our engaging lessons and quizzes.',
-      // code: '',
-      live: 'https://karthik-study.vercel.app/',
-      stack: 'HTMl, CSS, JavaScript',
-      thumbnail: 'Karthik-lanProject.png',
-    },
-    {
-      title: 'DS Polypack',
-      description: 'Quality Packing Solutions',
-      // code: '',
-      live: 'https://dspolypack.com/',
-      stack: 'HTML, Bootstrap 5',
-      thumbnail: 'DSPolyProject.png',
-    },
-  ];
+export default function Projects() {
   return (
-    <div
-      id="projects"
-      className="mx-auto flex w-full max-w-6xl flex-col items-start space-y-5 px-4 md:space-y-7"
-    >
-      <h1 className="border-b border-lime-400 bg-lime-400/10 px-4 py-1 text-xl">
-        Projects
-      </h1>
-      <div className="mt-7 grid gap-12 md:grid-cols-3">
-        {works.map((work, index) => (
-          <div
-            key={index}
-            className="group space-y-5 rounded-2xl hover:border-zinc-200 lg:gap-x-0 lg:gap-y-5"
-          >
-            <Image
-              alt="blog"
-              loading="lazy"
-              width="400"
-              height="400"
-              className="h-auto w-full rounded-2xl object-cover"
-              src={`/projects/${work.thumbnail}`}
-            />
-            <div className="flex flex-col items-start space-y-3">
-              <h2 className="text-xl font-semibold">{work.title}</h2>
-              <p>{work.description}</p>
-              <div className="flex w-full flex-row items-center gap-4">
-                <a
-                  href={work.live}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="rounded-lg border border-lime-400/10 bg-lime-400/10 px-8 py-2 text-lime-400 transition duration-300 hover:cursor-pointer hover:bg-lime-400/20 hover:text-lime-400"
-                >
-                  Live
-                </a>
-                <a
-                  href={work.code}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="rounded-lg border border-lime-400/10 bg-lime-400/10 px-8 py-2 text-lime-400 transition duration-300 hover:cursor-pointer hover:bg-lime-400/20 hover:text-lime-400"
-                >
-                  Source
-                </a>
+    <section id="projects" className="projects-section container" aria-labelledby="projects-title">
+      <div className="section-heading">
+        <div><p className="eyebrow">01 / SELECTED WORK</p><h2 id="projects-title">Ideas turned into websites<span className="accent">.</span></h2></div>
+        <a className="text-link" href="https://github.com/Karthik6146?tab=repositories" target="_blank" rel="noopener noreferrer">All repositories ↗</a>
+      </div>
+      <div className="project-grid">
+        {projects.map((project) => (
+          <article key={project.title} className="project-card">
+            {project.thumbnail ? (
+              <div className="project-image"><Image src={project.thumbnail} alt={`${project.title} website preview`} width={800} height={500} sizes="(max-width: 767px) 100vw, 50vw" /></div>
+            ) : (
+              <div className={`project-preview ${project.preview}`}>
+                <p className="preview-label">INTERFACE CONCEPT</p>
+                {project.preview === 'restaurant' ? (
+                  <div className="restaurant-concept" aria-hidden="true"><span>AREVEI / RESTAURANT</span><p>Good food.<br /><em>Great company.</em></p><div>Discover the menu <span>↗</span></div></div>
+                ) : (
+                  <div className="workspace-concept" aria-hidden="true"><div className="workspace-sidebar">a<span>Overview</span><span>Projects</span><span>Tasks</span></div><div className="workspace-content"><span>Your workspace</span><strong>A little more clarity.</strong><div className="workspace-tiles"><span>Projects<b>Organize</b></span><span>Workflows<b>Connect</b></span></div><div className="workspace-line" /><div className="workspace-line short" /></div></div>
+                )}
+              </div>
+            )}
+            <div className="project-info">
+              <p className="project-category">{project.category}{project.year && ` / ${project.year}`}</p>
+              <h3>{project.title}</h3>
+              <p className="project-description">{project.description}</p>
+              <ul className="tags" aria-label={`${project.title} technologies`}>{project.stack.map((tech) => <li key={tech}>{tech}</li>)}</ul>
+              <div className="project-links">
+                {project.live ? <a href={project.live} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${project.title} website`}>Visit website ↗</a> : <span className="demo-unavailable">Demo unavailable</span>}
+                {project.code && <a href={project.code} target="_blank" rel="noopener noreferrer" aria-label={`View ${project.title} source on GitHub`}>Source code ↗</a>}
               </div>
             </div>
-          </div>
+          </article>
         ))}
       </div>
-    </div>
+    </section>
   );
-};
-
-export default Projects;
+}

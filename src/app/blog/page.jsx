@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { getAllPosts } from '@/lib/posts';
 
 export const metadata = {
-  title: 'Blog - Karthik Shakya',
+  title: 'Blog',
   description: 'Read my thoughts on software development, design, and more.',
 };
 
@@ -15,7 +15,7 @@ export default async function Blog() {
   }
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-12">
+    <div className="container py-12">
       <h1 className="mb-8 text-4xl font-bold">Blog</h1>
       {posts.length === 0 ? (
         <p className="text-gray-600">No posts available yet. Check back soon!</p>

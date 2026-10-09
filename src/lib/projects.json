@@ -1,0 +1,44 @@
+[
+  {
+    "title": "Arevei Restaurant",
+    "category": "Personal project",
+    "description": "A restaurant experience with dedicated pages for the menu, reservations, and specials. Built with React and responsive styling.",
+    "code": "https://github.com/Karthik6146/Restaurant-Website",
+    "live": "https://restaurant-website-one-kappa.vercel.app",
+    "stack": ["React", "Tailwind CSS", "React Router"],
+    "preview": "restaurant",
+    "year": "2025"
+  },
+  {
+    "title": "AI Workspace",
+    "category": "Fork · Personal exploration",
+    "description": "An AI workspace bringing together projects, tasks, blog editing, and workflows. Exploring a React frontend and Python backend in a forked codebase.",
+    "code": "https://github.com/Karthik6146/aiwebsite",
+    "stack": ["React", "Python", "Tailwind CSS"],
+    "preview": "workspace",
+    "year": "2026"
+  },
+  {
+    "title": "Arevei",
+    "category": "Client website",
+    "description": "A brand website created during my internship at Arevei, with a focus on clear content and a responsive frontend.",
+    "live": "https://www.arevei.com/",
+    "stack": ["React", "Tailwind CSS"],
+    "thumbnail": "/projects/Arevei.png"
+  },
+  {
+    "title": "Japanese Learning",
+    "category": "Personal project",
+    "description": "A small learning website to practice Japanese vocabulary and phrases through lessons and quizzes.",
+    "live": "https://karthik-study.vercel.app/",
+    "stack": ["HTML", "CSS", "JavaScript"],
+    "thumbnail": "/projects/Karthik-lanProject.png"
+  },
+  {
+    "title": "DS Polypack",
+    "category": "Client website",
+    "description": "A business website presenting packaging products and services in a straightforward, accessible layout.",
+    "stack": ["HTML", "Bootstrap"],
+    "thumbnail": "/projects/DSPolyProject.png"
+  }
+]

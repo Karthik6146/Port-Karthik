@@ -1,6 +1,5 @@
 import fs from 'fs';
 import path from 'path';
-import { serialize } from 'next-mdx-remote/serialize';
 
 const postsDirectory = path.join(process.cwd(), 'src/posts');
 
@@ -71,17 +70,9 @@ export async function getPostBySlug(slug) {
       }
     });
 
-    // Serialize the MDX content
-    const mdxSource = await serialize(content.trim(), {
-      parseFrontmatter: false,
-      mdxOptions: {
-        development: process.env.NODE_ENV === 'development',
-      },
-    });
-
     return {
       ...metadata,
-      content: mdxSource,
+      content: content.trim(),
     };
   } catch (error) {
     console.error('Error reading post:', error);
