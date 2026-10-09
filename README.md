@@ -30,7 +30,9 @@ The refresh fixes the old developer credit, another person's LinkedIn CTA, empty
 
 Design references: [Paco Coursey](https://paco.me/), [Lee Robinson](https://leerob.com/), [next-mdx-blog](https://github.com/leerob/next-mdx-blog), and [onur.dev](https://github.com/suyalcinkaya/onur.dev). Their clear hierarchy and restrained presentation informed the design. No template code or branding was copied.
 
-GitHub's public API verified [Restaurant-Website](https://github.com/Karthik6146/Restaurant-Website) and [aiwebsite](https://github.com/Karthik6146/aiwebsite). The latter is explicitly labelled a fork. Karthik6146AC returned 404; the SD assignment repository is empty. Existing client work remains from the previous portfolio. The two new project previews are labelled interface concepts, not screenshots. Project data is a reviewed snapshot, not a live API feed.
+GitHub's public API verified [Restaurant-Website](https://github.com/Karthik6146/Restaurant-Website) and [aiwebsite](https://github.com/Karthik6146/aiwebsite). The latter is explicitly labelled a fork. Karthik6146AC returned 404; the SD assignment repository is empty. Existing client work remains from the previous portfolio. The AI Workspace preview is labelled an interface concept, not a screenshot. Project data is a reviewed snapshot, not a live API feed.
+
+Fresh 1440 × 900 homepage screenshots were captured on October 9, 2026 for [JoinCloud](https://www.joincloud.cloud/), the restaurant, and Arevei. They are stored in `public/projects/*-2026.jpg`. JoinCloud was added as the owner's software project for local Wi-Fi transfers and personal-cloud file sharing; its tags describe features rather than an unverified implementation stack.
 
 Live checks: the restaurant, Arevei, and Japanese Learning sites returned HTTP 200. The AI demo returned 404 and DS Polypack's domain failed DNS resolution; their demo links are omitted and marked unavailable.
 

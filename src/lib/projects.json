@@ -1,12 +1,20 @@
 [
   {
+    "title": "JoinCloud",
+    "category": "Software project",
+    "description": "Software for sharing and transferring files over Wi-Fi, with a personal cloud built around storage on your own device. Share across your local network or through browser links.",
+    "live": "https://www.joincloud.cloud/",
+    "stack": ["Wi-Fi transfer", "File sharing", "Personal cloud"],
+    "thumbnail": "/projects/joincloud-2026.jpg"
+  },
+  {
     "title": "Arevei Restaurant",
     "category": "Personal project",
     "description": "A restaurant experience with dedicated pages for the menu, reservations, and specials. Built with React and responsive styling.",
     "code": "https://github.com/Karthik6146/Restaurant-Website",
     "live": "https://restaurant-website-one-kappa.vercel.app",
     "stack": ["React", "Tailwind CSS", "React Router"],
-    "preview": "restaurant",
+    "thumbnail": "/projects/restaurant-2026.jpg",
     "year": "2025"
   },
   {
@@ -21,10 +29,10 @@
   {
     "title": "Arevei",
     "category": "Client website",
-    "description": "A brand website created during my internship at Arevei, with a focus on clear content and a responsive frontend.",
+    "description": "Arevei’s company website presenting AI agents, automation, web development, and software products through a responsive frontend.",
     "live": "https://www.arevei.com/",
     "stack": ["React", "Tailwind CSS"],
-    "thumbnail": "/projects/Arevei.png"
+    "thumbnail": "/projects/arevei-2026.jpg"
   },
   {
     "title": "Japanese Learning",

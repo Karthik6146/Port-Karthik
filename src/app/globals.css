@@ -54,12 +54,6 @@ h2 { font-size: 30px; line-height: 1.3; font-weight: 600; letter-spacing: -1px; 
 .project-image img { width: 100%; height: 100%; object-fit: cover; object-position: top; border: 1px solid var(--border); border-radius: 4px 4px 0 0; }
 .project-preview { position: relative; padding: 36px; }
 .preview-label { position: absolute; right: 16px; top: 12px; font-size: 8px; letter-spacing: 1.5px; }
-.restaurant { background: #ece8dd; color: #534b3b; }
-.restaurant-concept { border: 1px solid #c9c2ad; height: 240px; padding: 24px 30px; background: #f9f5ec; }
-.restaurant-concept > span { font-size: 9px; letter-spacing: 2px; }
-.restaurant-concept p { font-family: Georgia, serif; font-size: 34px; line-height: 1.2; margin-block: 20px; }
-.restaurant-concept em { color: #7b4435; }
-.restaurant-concept div { display: inline-flex; align-items: center; gap: 28px; padding-bottom: 6px; border-bottom: 1px solid #7b4435; font-size: 10px; }
 .workspace { background: #e4ece5; color: #35513e; }
 .workspace-concept { display: flex; background: white; border: 1px solid #c5d2c7; border-radius: 6px; height: 240px; overflow: hidden; }
 .workspace-sidebar { padding: 20px 14px; background: #f5f7f4; border-right: 1px solid var(--border); font-weight: 700; font-size: 25px; width: 96px; flex-shrink: 0; }

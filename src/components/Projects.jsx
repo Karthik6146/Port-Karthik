@@ -16,18 +16,14 @@ export default function Projects() {
             ) : (
               <div className={`project-preview ${project.preview}`}>
                 <p className="preview-label">INTERFACE CONCEPT</p>
-                {project.preview === 'restaurant' ? (
-                  <div className="restaurant-concept" aria-hidden="true"><span>AREVEI / RESTAURANT</span><p>Good food.<br /><em>Great company.</em></p><div>Discover the menu <span>↗</span></div></div>
-                ) : (
-                  <div className="workspace-concept" aria-hidden="true"><div className="workspace-sidebar">a<span>Overview</span><span>Projects</span><span>Tasks</span></div><div className="workspace-content"><span>Your workspace</span><strong>A little more clarity.</strong><div className="workspace-tiles"><span>Projects<b>Organize</b></span><span>Workflows<b>Connect</b></span></div><div className="workspace-line" /><div className="workspace-line short" /></div></div>
-                )}
+                <div className="workspace-concept" aria-hidden="true"><div className="workspace-sidebar">a<span>Overview</span><span>Projects</span><span>Tasks</span></div><div className="workspace-content"><span>Your workspace</span><strong>A little more clarity.</strong><div className="workspace-tiles"><span>Projects<b>Organize</b></span><span>Workflows<b>Connect</b></span></div><div className="workspace-line" /><div className="workspace-line short" /></div></div>
               </div>
             )}
             <div className="project-info">
               <p className="project-category">{project.category}{project.year && ` / ${project.year}`}</p>
               <h3>{project.title}</h3>
               <p className="project-description">{project.description}</p>
-              <ul className="tags" aria-label={`${project.title} technologies`}>{project.stack.map((tech) => <li key={tech}>{tech}</li>)}</ul>
+              <ul className="tags" aria-label={`${project.title} features and technologies`}>{project.stack.map((tech) => <li key={tech}>{tech}</li>)}</ul>
               <div className="project-links">
                 {project.live ? <a href={project.live} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${project.title} website`}>Visit website ↗</a> : <span className="demo-unavailable">Demo unavailable</span>}
                 {project.code && <a href={project.code} target="_blank" rel="noopener noreferrer" aria-label={`View ${project.title} source on GitHub`}>Source code ↗</a>}
