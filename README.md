@@ -2,6 +2,8 @@
 
 A simple portfolio built with Next.js 16, React 19, Tailwind CSS, and server-rendered MDX. The homepage presents selected work, skills, and a LinkedIn contact link.
 
+The header theme toggle switches between light and dark mode. The first visit follows the system preference; an explicit choice is saved locally and applied before rendering to avoid a flash of the wrong theme. If browser storage is blocked, the toggle still works for the current page.
+
 ## Run locally
 
 Use Node.js 20.9 or newer.
