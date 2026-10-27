@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import { getAllPosts } from '@/lib/posts';
+import { formatDate } from '@/lib/format';
 
 export const metadata = {
   title: 'Blog',
-  description: 'Read my thoughts on software development, design, and more.',
+  description: 'Notes on frontend development, design, and things I am learning.',
 };
 
 export default async function Blog() {
@@ -15,36 +16,26 @@ export default async function Blog() {
   }
 
   return (
-    <div className="container py-12">
-      <h1 className="mb-8 text-4xl font-bold">Blog</h1>
+    <section className="page-section container" aria-labelledby="blog-title">
+      <p className="eyebrow">WRITING</p>
+      <h1 id="blog-title" className="page-title">Notes &amp; experiments<span className="accent">.</span></h1>
+      <p className="page-lead">Short write-ups on frontend development, design, and what I’m learning along the way.</p>
       {posts.length === 0 ? (
-        <p className="text-gray-600">No posts available yet. Check back soon!</p>
+        <p className="page-lead">No posts yet. Check back soon.</p>
       ) : (
-        <div className="grid gap-8">
+        <ul className="post-list">
           {posts.map((post) => (
-            <article key={post.slug} className="group">
-              <a
-                href={`/blog/${post.slug}`}
-                className="block transition-colors hover:text-blue-600"
-              >
-                <h2 className="mb-2 text-2xl font-semibold">{post.title}</h2>
-                <div className="text-gray-600">
-                  <time dateTime={post.date}>
-                    {new Date(post.date).toLocaleDateString('en-US', {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric',
-                    })}
-                  </time>
-                </div>
-                {post.excerpt && (
-                  <p className="mt-2 text-gray-600">{post.excerpt}</p>
-                )}
-              </a>
-            </article>
+            <li key={post.slug}>
+              <Link href={`/blog/${post.slug}`} className="post-link">
+                {post.date && <time dateTime={post.date}>{formatDate(post.date)}</time>}
+                <h2>{post.title}</h2>
+                {post.excerpt && <p>{post.excerpt}</p>}
+                <span className="post-more">Read post <span aria-hidden="true">→</span></span>
+              </Link>
+            </li>
           ))}
-        </div>
+        </ul>
       )}
-    </div>
+    </section>
   );
 }

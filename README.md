@@ -1,43 +1,96 @@
-﻿# Karthik Shakyawar — portfolio
+﻿# Karthik Shakyawar — Portfolio
 
-A simple portfolio built with Next.js 16, React 19, Tailwind CSS, and server-rendered MDX. The homepage presents selected work, skills, and a LinkedIn contact link.
+Personal portfolio and blog of **Karthik Shakyawar**, a frontend developer who builds thoughtful, easy-to-use websites.
 
-The header theme toggle switches between light and dark mode. The first visit follows the system preference; an explicit choice is saved locally and applied before rendering to avoid a flash of the wrong theme. If browser storage is blocked, the toggle still works for the current page.
+Built with **Next.js 16** (App Router), **React 19**, **Tailwind CSS**, and **MDX**.
 
-## Run locally
+![Portfolio homepage](artifacts/portfolio-1440.png)
 
-Use Node.js 20.9 or newer.
+## Features
 
-```sh
+- **Selected work** — project cards driven by a single JSON file, with screenshots, tags, live and source links.
+- **About & skills** — short bio with grouped skills.
+- **Blog** — MDX posts in `src/posts`, statically generated at build time.
+- **Light and dark themes** — follows the system preference on first visit, remembers an explicit choice, and applies it before paint (no theme flash).
+- **Accessible** — skip link, visible focus styles, 44px touch targets, `prefers-reduced-motion` support.
+- **Responsive** — tested from 320px phones to 1440px desktops.
+- **SEO ready** — page metadata, Open Graph and Twitter cards.
+
+## Tech stack
+
+| Area | Tools |
+| --- | --- |
+| Framework | Next.js 16, React 19 |
+| Styling | Tailwind CSS 3, `@tailwindcss/typography`, CSS custom properties |
+| Content | MDX via `next-mdx-remote` |
+| Quality | ESLint 9, Prettier, Node test runner |
+
+## Getting started
+
+Requires **Node.js 20.9 or newer**.
+
+```bash
+git clone https://github.com/Karthik6146/<repo-name>.git
+cd <repo-name>
 npm ci
 npm run dev
 ```
 
-Open http://localhost:3000. Production: `npm run build`, then `npm start`.
+Open http://localhost:3000.
 
-Checks: `npm test` and `npm run lint`.
+## Scripts
 
-Production dependency audit: `npm audit --omit=dev`. The remaining full-audit advisories involve development tooling (Tailwind and ESLint dependencies); no forced major tool upgrades were applied.
+| Command | What it does |
+| --- | --- |
+| `npm run dev` | Start the dev server |
+| `npm run build` | Production build |
+| `npm start` | Serve the production build |
+| `npm run lint` | Run ESLint |
+| `npm test` | Run unit tests (`tests/*.test.mjs`) |
 
-## Content
+## Project structure
 
-- Edit `src/lib/projects.json` to add or update projects. Include only verified source and live URLs. Source links are optional.
-- Update biography and skills in `src/components/Hero.jsx` and `src/components/Skills.jsx`.
-- Add trusted, locally authored MDX posts in `src/posts`. Do not accept MDX from untrusted users.
-- Set `SITE_URL` to the public portfolio URL when deploying outside Vercel; Vercel's production domain is detected automatically. The local fallback is http://localhost:3000. The old client domain was removed from portfolio metadata.
+```
+src/
+  app/              Routes: home, /blog, /blog/[slug], layout and global styles
+  components/       Hero, Projects, Skills, ThemeToggle, MDX renderers
+    layout/         Header and Footer
+  lib/
+    projects.json   Project data shown on the homepage
+    posts.js        MDX loading and frontmatter parsing
+  posts/            Blog posts (.mdx)
+public/             Portrait, project screenshots, favicon
+tests/              Unit tests for projects, posts and theme script
+```
 
-## Review and research — October 9, 2026
+## Editing content
 
-The refresh fixes the old developer credit, another person's LinkedIn CTA, empty source links, a missing social preview image, and broken blog rendering. The responsive navigation now stays visible without a mobile drawer.
+- **Projects:** edit `src/lib/projects.json`. Put screenshots in `public/projects/`. `live` and `code` links are optional.
+- **Bio and skills:** edit `src/components/Hero.jsx` and `src/components/Skills.jsx`.
+- **Blog posts:** add `src/posts/my-post.mdx`:
 
-Design references: [Paco Coursey](https://paco.me/), [Lee Robinson](https://leerob.com/), [next-mdx-blog](https://github.com/leerob/next-mdx-blog), and [onur.dev](https://github.com/suyalcinkaya/onur.dev). Their clear hierarchy and restrained presentation informed the design. No template code or branding was copied.
+  ```mdx
+  ---
+  title: My Post
+  date: 2026-10-27
+  excerpt: One-line summary shown on the blog index.
+  ---
 
-GitHub's public API verified [Restaurant-Website](https://github.com/Karthik6146/Restaurant-Website) and [aiwebsite](https://github.com/Karthik6146/aiwebsite). The latter is explicitly labelled a fork. Karthik6146AC returned 404; the SD assignment repository is empty. Existing client work remains from the previous portfolio. The AI Workspace preview is labelled an interface concept, not a screenshot. Project data is a reviewed snapshot, not a live API feed.
+  Post content in Markdown / MDX.
+  ```
 
-Fresh 1440 × 900 homepage screenshots were captured on October 9, 2026 for [JoinCloud](https://www.joincloud.cloud/), the restaurant, and Arevei. They are stored in `public/projects/*-2026.jpg`. JoinCloud was added as the owner's software project for local Wi-Fi transfers and personal-cloud file sharing; its tags describe features rather than an unverified implementation stack.
+  MDX runs as code at build time. Only add posts you wrote yourself.
 
-Live checks: the restaurant, Arevei, and Japanese Learning sites returned HTTP 200. The AI demo returned 404 and DS Polypack's domain failed DNS resolution; their demo links are omitted and marked unavailable.
+## Deployment
+
+Deploys to [Vercel](https://vercel.com) with no extra configuration; the production URL is detected automatically.
+
+On other hosts, set `SITE_URL` to the public URL (used for Open Graph links):
+
+```bash
+SITE_URL=https://your-domain.com npm run build
+```
 
 ## License
 
-MIT; see LICENSE.
+[MIT](LICENSE)

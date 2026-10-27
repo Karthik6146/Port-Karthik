@@ -12,13 +12,13 @@ export const metadata = {
     type: 'website',
     title: 'Karthik Shakyawar | Frontend Developer',
     description: 'Thoughtful interfaces. Practical code. Explore my selected work and get in touch.',
-    images: [{ url: '/Site%20portfolio%20pic.png', width: 605, height: 721, alt: 'Karthik Shakyawar' }],
+    images: [{ url: '/portrait.png', width: 605, height: 721, alt: 'Karthik Shakyawar' }],
   },
   twitter: {
     card: 'summary',
     title: 'Karthik Shakyawar | Frontend Developer',
     description: 'Thoughtful websites, frontend projects, and experiments by Karthik Shakyawar.',
-    images: ['/Site%20portfolio%20pic.png'],
+    images: ['/portrait.png'],
   },
   icons: { icon: '/favicon.ico' },
 };

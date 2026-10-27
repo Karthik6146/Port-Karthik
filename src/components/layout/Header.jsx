@@ -10,6 +10,7 @@ export default function Header() {
         <nav aria-label="Main navigation">
           <Link href="/#projects">Work</Link>
           <Link href="/#about">About</Link>
+          <Link href="/blog">Blog</Link>
           <Link href="/#contact" className="nav-contact">Let’s talk <span aria-hidden="true">↗</span></Link>
           <ThemeToggle />
         </nav>

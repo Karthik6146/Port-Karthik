@@ -1,6 +1,10 @@
-﻿import { notFound } from 'next/navigation';
+﻿import Link from 'next/link';
+import { notFound } from 'next/navigation';
 import { getPostBySlug, getAllPosts } from '@/lib/posts';
+import { formatDate } from '@/lib/format';
 import MDXContent from '@/components/MDXContent';
+
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
   try {
@@ -26,12 +30,12 @@ export default async function BlogPost({ params }) {
   if (!post) notFound();
 
   return (
-    <article className="container py-12">
-      <header className="mb-8">
-        <h1 className="mb-4 text-4xl font-bold">{post.title}</h1>
-        <div className="text-gray-600">
-          Published on: <time dateTime={post.date}>{new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}</time>
-        </div>
+    <article className="page-section container post">
+      <Link href="/blog" className="text-link">← All posts</Link>
+      <header className="post-header">
+        {post.date && <p className="eyebrow"><time dateTime={post.date}>{formatDate(post.date)}</time></p>}
+        <h1 className="page-title">{post.title}</h1>
+        {post.excerpt && <p className="page-lead">{post.excerpt}</p>}
       </header>
       <MDXContent content={post.content} />
     </article>

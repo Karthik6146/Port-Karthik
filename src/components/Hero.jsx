@@ -14,7 +14,7 @@ export default function Hero() {
         <p className="hero-note">Thoughtful interfaces. Practical code. Always learning.</p>
       </div>
       <figure className="portrait">
-        <Image src="/Site portfolio pic.png" width={605} height={721} alt="Karthik Shakyawar" priority sizes="(max-width: 767px) 260px, 320px" />
+        <Image src="/portrait.png" width={605} height={721} alt="Karthik Shakyawar" priority sizes="(max-width: 767px) 260px, 320px" />
         <figcaption><span className="status-dot" /> A little design. A lot of curiosity.</figcaption>
       </figure>
     </section>
