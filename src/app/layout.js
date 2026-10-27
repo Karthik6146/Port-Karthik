@@ -20,7 +20,6 @@ export const metadata = {
     description: 'Thoughtful websites, frontend projects, and experiments by Karthik Shakyawar.',
     images: ['/portrait.png'],
   },
-  icons: { icon: '/favicon.ico' },
 };
 
 export default function RootLayout({ children }) {
